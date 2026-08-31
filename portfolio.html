@@ -1,26 +1,68 @@
 <!DOCTYPE html>  <!-- -->
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Page</title>
+    <link id="style" rel="stylesheet" href="style1.css">
+    <nav>
+        <a href="index.html">Landing Page</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="qualifications.html">Qualifications</a>
+        <a href="activities.html">Activities</a>
+        <a href="genai.html">Ai</a>
+        <button onclick="switchstyle()">Switch Style</button>
+    </nav>
 </head>
 <body>
     <main>
-    <h2>Portfolio</h2>
-    <p>Here are a few projects I've worked on:</p>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
+    <h1>Portfolio</h1>
+
+    <h3>Sim Racing Steering Wheel</h3>
+    <p>In this project, I completely designed and built a custom sim racing steering wheel.
+        I designed the wheel in CAD, 3D printed the body, and assembled the PCB.
+        The wheel features a custom PCB with an ESP32 microcontroller using shift register logic to expand the I/O. 
+        The inputs include rotary encoders, push buttons, hall effect clutches, and a 7 way funcky switch.
+        The wheel is running a custom firmware, recognized by Windows as a standard input device.
+        <img src="images/wheel.jpg" alt="Steering Wheel" height="500">
+        
+    <h3>Vehicle Status Warning System</h3>
+    <p>As a member of Texas A&M University's Formula Electric team, I designed and built a visual and audible warning system for our racecar.
+        The light system bightly displays the status of the car's battery system, while the audible buzzer alerts anyone in the vicinity when
+        the vehicle is precharged and ready to drive. The system is powered by a custom PCB with an STM32 microcontroller, and is running a custom firmware.
+        <img src="images/pcb.jpg" alt="Custom PCB" height="500">
+
+    <h3>Wakeboard Training Winch</h3>
+    <p>In this project, I designed and built a remote controlled winch for solo wakeboard training, eliminating the need for a boat and driver.
+        The winch is powered by a small bore Honda engine and is controlled by an RC remote. This project was a collaboration with a friend, 
+        where I designed and built the electronics and control system, in addition to the fabrication of the winch. The winch features a custom PCB with an ESP32 microcontroller, 
+        and is running a custom firmware. The winch is capable of pulling a wakeboarder at speeds up to 30 mph from 600 feet away.
+        <img src="images/winch.jpg" alt="Wakeboard Winch" height="500">
+    
+    <h3>Personal Website</h3>
+    <p>This website was designed and built by me to showcase my portfolio, qualifications, and activities as apart of my Foundations of Software Engineering course (CSCE331). 
+        It is built using HTML, CSS, and JavaScript. The website features a toggleable CSS style and a AI tool created entirely by AI prompting.
+        Please contiune to explore my website. The source code can be found on my GitHub page.
+        <img src="images/website.jpg" alt="Personal Website" height="500">
+        
     </main>
-    <nav>
-    <a href="index.html">Landing Page</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="qualifications.html">Qualifications</a>
-    <a href="activities.html">Activities</a>
-    <a href="genai.html">Ai</a>
-    </nav>
+        <footer>
+        <p>Socials:</p>
+        <div class="socials">
+            <a href="https://linkedin.com/in/andrewschrick" >LinkedIn</a>
+            <a href="https://github.com/andrewschrick" >GitHub</a>
+            <a href="https://instagram.com/andy_schrick" >Instagram</a>
+        </div>
+    </footer>
 </body>
+    <script>
+        function switchstyle() {
+            let themeLink = document.getElementById("style");
+            if (themeLink.getAttribute("href") === "style1.css") {
+                themeLink.setAttribute("href", "style2.css");
+            } else {
+                themeLink.setAttribute("href", "style1.css");
+            }
+        }
+    </script>
 </html>

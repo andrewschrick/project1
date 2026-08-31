@@ -4,23 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activities Page</title>
-</head>
-<body>
-    <main>
-        <h2>Activities</h2>
-        <p>Here are some of the activities I've been involved in:</p>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </main>
+    <link id="style" rel="stylesheet" href="style1.css">
     <nav>
         <a href="index.html">Landing Page</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="qualifications.html">Qualifications</a>
         <a href="activities.html">Activities</a>
         <a href="genai.html">Ai</a>
+        <button onclick="switchstyle()">Switch Style</button>
     </nav>
+</head>
+<body>
+    <main>
+        <h1>Activities</h1>
+        <h3>Texas A&M University Formula Electric</h3>
+        <p>I am a member of Texas A&M University's Formula Electric team, where I lead the Electronics Subteam. 
+            In this role, I am responsible for designing and implementing the electrical systems for our racecar, 
+            including the battery management system, motor controller, and data acquisition system. I also work closely with the mechanical and software subteams to ensure that our electrical systems are integrated seamlessly into the overall design of the car.
+        <img src="images/fsae.jpg" alt="TAMU Formula Electric" height="500">
+
+        <h3>Society of Automotive Engineers (SAE International)</h3>
+        <p>I am a member of SAE International, a professional organization for engineers in the automotive and aerospace industries. 
+            As a member, I have access to a wide range of resources and networking opportunities, including technical papers, conferences, and competitions. 
+            I have also participated in several SAE competitions, including the Formula SAE and Baja SAE competitions, where I have gained valuable hands-on experience in designing and building vehicles.
+        <img src="images/sae.jpg" alt="SAE" height="500">
+    
+    </main>
+    <footer>
+        <p>Socials:</p>
+        <div class="socials">
+            <a href="https://linkedin.com/in/andrewschrick" >LinkedIn</a>
+            <a href="https://github.com/andrewschrick" >GitHub</a>
+            <a href="https://instagram.com/andy_schrick" >Instagram</a>
+        </div>
+    </footer>
 </body>
+    <script>
+        function switchstyle() {
+            let themeLink = document.getElementById("style");
+            if (themeLink.getAttribute("href") === "style1.css") {
+                themeLink.setAttribute("href", "style2.css");
+            } else {
+                themeLink.setAttribute("href", "style1.css");
+            }
+        }
+    </script>
 </html>

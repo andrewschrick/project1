@@ -1,21 +1,47 @@
 <!DOCTYPE html>  <!-- This is my Personal Website's Landing Page -->
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Page</title>
+    <link id="style" rel="stylesheet" href="style1.css">
+    <nav>
+        <a href="index.html">Landing Page</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="qualifications.html">Qualifications</a>
+        <a href="activities.html">Activities</a>
+        <a href="genai.html">Ai</a>
+        <button onclick="switchstyle()">Switch Style</button>
+    </nav>
 </head>
 <body>
     <main>
-        <h2>Andrew Schrick</h2>
-        <p>Howdy! My name is Andrew Schrick...</p>
+        <h1>Andrew Schrick</h1>
+        <p>Howdy! My name is Andrew Schrick. I am a Computer Engineering student at Texas A&M University
+            graduating in December of 2027. I am passionate about automotive/aerospace electronics, embedded systems, and racing. 
+            I am a member of the Texas A&M University Formula SAE team, where I lead the Electronics Subteam.
+            I am currently seeking internship opportunities for the summer of 2027.
+            Please explore my website, this is your opprotunity to learn more about me and my work! Check out my
+            portfolio, qualifications, and activities pages to hear about my experience and interests.
+        </p>
+        <img src="images/meincar.jpg" alt="Me" height="500">
     </main>
-    
-    <nav>
-    <a href="index.html">Landing Page</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="qualifications.html">Qualifications</a>
-    <a href="activities.html">Activities</a>
-    <a href="genai.html">Ai</a>
-    </nav>
+        <footer>
+        <p>Socials:</p>
+        <div class="socials">
+            <a href="https://linkedin.com/in/andrewschrick" >LinkedIn</a>
+            <a href="https://github.com/andrewschrick" >GitHub</a>
+            <a href="https://instagram.com/andy_schrick" >Instagram</a>
+        </div>
+    </footer>
 </body>
+    <script>
+        function switchstyle() {
+            let themeLink = document.getElementById("style");
+            if (themeLink.getAttribute("href") === "style1.css") {
+                themeLink.setAttribute("href", "style2.css");
+            } else {
+                themeLink.setAttribute("href", "style1.css");
+            }
+        }
+    </script>
 </html>

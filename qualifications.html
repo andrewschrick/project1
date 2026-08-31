@@ -4,24 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qualifications Page</title>
+    <link id="style" rel="stylesheet" href="style1.css">
+    <nav>
+        <a href="index.html">Landing Page</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="qualifications.html">Qualifications</a>
+        <a href="activities.html">Activities</a>
+        <a href="genai.html">Ai</a>
+        <button onclick="switchstyle()">Switch Style</button>
+    </nav>
 </head>
 <body>
     <main>
-    <h2>Qualifications</h2>
-    <p>Here are my academic and professional qualifications:</p>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    </main>
-    <nav>
-    <a href="index.html">Landing Page</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="qualifications.html">Qualifications</a>
-    <a href="activities.html">Activities</a>
-    <a href="genai.html">Ai</a>
-    </nav>
+    <h1>Qualifications</h1>
 
+    <h3>Technical Work Experience</h3>
+    <p>During the summer of 2027, I worked as a Controls and Instrumentation Engineer Intern at Amentum. 
+        In this role, I was responsible for designing and implementing control systems for wind tunnel projects, 
+        as well as conducting instrumentation testing and analysis. I programmed Allen-Bradley CompactLogix PLCs 
+        utilizing Studio 5000 Logix Designer to develop, modify, and troubleshoot ladder logic code for a military testing facility.
+         I also designed and configured HMI applications using FactoryTalk View, creating user-friendly interfaces that optimized
+         system visualization and operator control. Executed Factory Acceptance Testing on various electrical control panels, verifying wiring accuracy, logic
+        integration, and commissioning of control systems. I also performed data acquisition and analysis using LabVIEW, 
+        collecting and analyzing data from sensors and instrumentation to evaluate system performance and identify areas for improvement.
+    </p>
+
+    <h3>Areas of Interest</h3>
+    <p>My areas of interest include automotive and aerospace electronics, embedded systems, and racing. 
+        I am particularly interested in the design and development of control systems for vehicles and aircraft, 
+        as well as the integration of artificial intelligence and machine learning into vehicle control systems.
+    
+    <h3>Resume</h3>
+        <iframe src="https://drive.google.com/file/d/11OhxHcPzb1JbPCXzHsicLLV-ZPAjjbEe/view?usp=sharing" width="640" height="480" allow="autoplay"></iframe>
+    </main>
+        <footer>
+        <p>Socials:</p>
+        <div class="socials">
+            <a href="https://linkedin.com/in/andrewschrick" >LinkedIn</a>
+            <a href="https://github.com/andrewschrick" >GitHub</a>
+            <a href="https://instagram.com/andy_schrick" >Instagram</a>
+        </div>
+    </footer>
 </body>
+    <script>
+        function switchstyle() {
+            let themeLink = document.getElementById("style");
+            if (themeLink.getAttribute("href") === "style1.css") {
+                themeLink.setAttribute("href", "style2.css");
+            } else {
+                themeLink.setAttribute("href", "style1.css");
+            }
+        }
+    </script>
 </html>
