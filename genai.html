@@ -1,1 +1,234 @@
-<!-- This entire page was created using generative Ai -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Under Construction</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #fdf7e6 0%, #dfefff 100%);
+      font-family: Arial, sans-serif;
+      color: #2c2c2c;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .scene {
+      position: relative;
+      width: 260px;
+      height: 220px;
+      margin: 0 auto 20px;
+      background: linear-gradient(#d7ebff, #b9d9ff);
+      border: 4px solid #8db7e8;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .sun {
+      position: absolute;
+      top: 18px;
+      right: 35px;
+      width: 42px;
+      height: 42px;
+      background: #ffd166;
+      border-radius: 50%;
+      box-shadow: 0 0 18px rgba(255, 209, 102, 0.8);
+    }
+
+    .ground {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: #8ecf7d;
+      border-top: 4px solid #5ea656;
+    }
+
+    .construction {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 180px;
+      height: 110px;
+    }
+
+    .hat {
+      position: absolute;
+      left: 65px;
+      top: 10px;
+      width: 50px;
+      height: 18px;
+      background: #d65151;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .head {
+      position: absolute;
+      left: 70px;
+      top: 24px;
+      width: 38px;
+      height: 38px;
+      background: #f6c28b;
+      border-radius: 50%;
+    }
+
+    .body {
+      position: absolute;
+      left: 58px;
+      top: 58px;
+      width: 62px;
+      height: 42px;
+      background: #5a9bd5;
+      border-radius: 10px;
+    }
+
+    .arm {
+      position: absolute;
+      top: 64px;
+      width: 50px;
+      height: 14px;
+      background: #f6c28b;
+      border-radius: 8px;
+    }
+
+    .arm.left {
+      left: 10px;
+      transform: rotate(35deg);
+    }
+
+    .arm.right {
+      right: 10px;
+      transform: rotate(-35deg);
+    }
+
+    .leg {
+      position: absolute;
+      top: 94px;
+      width: 14px;
+      height: 36px;
+      background: #3d3d3d;
+      border-radius: 6px;
+    }
+
+    .leg.left { left: 72px; }
+    .leg.right { left: 96px; }
+
+    .tool {
+      position: absolute;
+      bottom: 30px;
+      left: 120px;
+      width: 70px;
+      height: 18px;
+      border: 4px solid #7d4a27;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      transform: rotate(20deg);
+    }
+
+    .tool::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: -15px;
+      width: 12px;
+      height: 18px;
+      background: #7d4a27;
+      border-radius: 6px;
+    }
+
+    .tool::after {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: -12px;
+      width: 18px;
+      height: 8px;
+      background: #7d4a27;
+      border-radius: 6px;
+    }
+
+    .barrier {
+      position: absolute;
+      left: 12px;
+      bottom: 45px;
+      width: 68px;
+      height: 48px;
+      border: 4px solid #d95f5f;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .barrier::before,
+    .barrier::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: #d95f5f;
+    }
+
+    .barrier::before { left: 20px; }
+    .barrier::after { right: 20px; }
+
+    .back-btn {
+      display: inline-block;
+      padding: 12px 22px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background: #2d6cdf;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(45, 108, 223, 0.25);
+      transition: background 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: #214fad;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Still Under Construction</h1>
+
+    <div class="scene" aria-label="construction worker illustration">
+      <div class="sun"></div>
+      <div class="barrier"></div>
+
+      <div class="construction">
+        <div class="hat"></div>
+        <div class="head"></div>
+        <div class="body"></div>
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+        <div class="tool"></div>
+      </div>
+
+      <div class="ground"></div>
+    </div>
+
+    <a class="back-btn" href="index.html">Back</a>
+  </div>
+</body>
+</html>
