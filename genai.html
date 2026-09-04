@@ -1,234 +1,492 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Under Construction</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(180deg, #fdf7e6 0%, #dfefff 100%);
-      font-family: Arial, sans-serif;
-      color: #2c2c2c;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Font Oracle — describe it, wear it</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#05060b;
+    --panel:#0d0f1a;
+    --panel-2:#12162a;
+    --line:#262c47;
+    --cyan:#4ce0d2;
+    --violet:#8b7cff;
+    --magenta:#ff5fd1;
+    --text:#e8ecfb;
+    --text-dim:#9aa3c7;
+    --radius-cut:14px;
+  }
 
-    .container {
-      text-align: center;
-      padding: 30px;
-    }
+  *{box-sizing:border-box;}
 
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
-    }
+  html{scroll-behavior:smooth;}
 
-    .scene {
-      position: relative;
-      width: 260px;
-      height: 220px;
-      margin: 0 auto 20px;
-      background: linear-gradient(#d7ebff, #b9d9ff);
-      border: 4px solid #8db7e8;
-      border-radius: 18px;
-      overflow: hidden;
-    }
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 600px at 12% -10%, rgba(139,124,255,0.16), transparent 60%),
+      radial-gradient(900px 500px at 100% 10%, rgba(76,224,210,0.10), transparent 55%),
+      var(--void);
+    color:var(--text);
+    font-family:"Inter", sans-serif;
+    line-height:1.55;
+    min-height:100vh;
+  }
 
-    .sun {
-      position: absolute;
-      top: 18px;
-      right: 35px;
-      width: 42px;
-      height: 42px;
-      background: #ffd166;
-      border-radius: 50%;
-      box-shadow: 0 0 18px rgba(255, 209, 102, 0.8);
-    }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
 
-    .ground {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background: #8ecf7d;
-      border-top: 4px solid #5ea656;
-    }
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:72px 28px 48px;
+  }
 
-    .construction {
-      position: absolute;
-      bottom: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 180px;
-      height: 110px;
-    }
+  /* ---------- Hero ---------- */
 
-    .hat {
-      position: absolute;
-      left: 65px;
-      top: 10px;
-      width: 50px;
-      height: 18px;
-      background: #d65151;
-      border-radius: 8px 8px 0 0;
-    }
+  .hero{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:32px;
+    align-items:end;
+    border-bottom:1px solid var(--line);
+    padding-bottom:36px;
+  }
 
-    .head {
-      position: absolute;
-      left: 70px;
-      top: 24px;
-      width: 38px;
-      height: 38px;
-      background: #f6c28b;
-      border-radius: 50%;
-    }
+  .hero h1{
+    font-family:"Space Grotesk", sans-serif;
+    font-weight:600;
+    font-size:clamp(2.6rem, 6vw, 4.2rem);
+    line-height:1.02;
+    letter-spacing:-0.02em;
+    margin:0 0 14px;
+    background:linear-gradient(135deg, var(--text) 40%, var(--cyan) 85%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
 
-    .body {
-      position: absolute;
-      left: 58px;
-      top: 58px;
-      width: 62px;
-      height: 42px;
-      background: #5a9bd5;
-      border-radius: 10px;
-    }
+  .hero p{
+    max-width:52ch;
+    color:var(--text-dim);
+    font-size:1.05rem;
+    margin:0;
+  }
 
-    .arm {
-      position: absolute;
-      top: 64px;
-      width: 50px;
-      height: 14px;
-      background: #f6c28b;
-      border-radius: 8px;
-    }
+  .orb{
+    width:96px;
+    height:96px;
+    border-radius:50%;
+    background:conic-gradient(from 180deg, var(--violet), var(--cyan), var(--magenta), var(--violet));
+    filter:blur(0.4px);
+    box-shadow:0 0 60px rgba(139,124,255,0.45);
+    flex-shrink:0;
+    animation:spin 14s linear infinite;
+  }
 
-    .arm.left {
-      left: 10px;
-      transform: rotate(35deg);
-    }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
 
-    .arm.right {
-      right: 10px;
-      transform: rotate(-35deg);
-    }
+  /* ---------- Search panel ---------- */
 
-    .leg {
-      position: absolute;
-      top: 94px;
-      width: 14px;
-      height: 36px;
-      background: #3d3d3d;
-      border-radius: 6px;
-    }
+  .search-panel{
+    margin-top:44px;
+    background:linear-gradient(180deg, var(--panel), var(--panel-2));
+    border:1px solid var(--line);
+    clip-path:polygon(0 18px, 18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+    padding:26px;
+    position:relative;
+  }
 
-    .leg.left { left: 72px; }
-    .leg.right { left: 96px; }
+  .search-panel::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    clip-path:polygon(0 18px, 18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%);
+    padding:1px;
+    background:linear-gradient(120deg, rgba(76,224,210,0.5), rgba(139,124,255,0.35), transparent 60%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    pointer-events:none;
+  }
 
-    .tool {
-      position: absolute;
-      bottom: 30px;
-      left: 120px;
-      width: 70px;
-      height: 18px;
-      border: 4px solid #7d4a27;
-      border-top: none;
-      border-radius: 0 0 12px 12px;
-      transform: rotate(20deg);
-    }
+  .search-panel label{
+    display:block;
+    font-size:0.95rem;
+    color:var(--text-dim);
+    margin-bottom:10px;
+  }
 
-    .tool::before {
-      content: "";
-      position: absolute;
-      left: 8px;
-      top: -15px;
-      width: 12px;
-      height: 18px;
-      background: #7d4a27;
-      border-radius: 6px;
-    }
+  #prompt{
+    width:100%;
+    min-height:96px;
+    resize:vertical;
+    background:rgba(5,6,11,0.6);
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--text);
+    font-family:"Inter", sans-serif;
+    font-size:1rem;
+    padding:14px 16px;
+    outline:none;
+    transition:border-color 0.15s ease, box-shadow 0.15s ease;
+  }
 
-    .tool::after {
-      content: "";
-      position: absolute;
-      right: 10px;
-      top: -12px;
-      width: 18px;
-      height: 8px;
-      background: #7d4a27;
-      border-radius: 6px;
-    }
+  #prompt:focus{
+    border-color:var(--cyan);
+    box-shadow:0 0 0 3px rgba(76,224,210,0.15);
+  }
 
-    .barrier {
-      position: absolute;
-      left: 12px;
-      bottom: 45px;
-      width: 68px;
-      height: 48px;
-      border: 4px solid #d95f5f;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.2);
-    }
+  .panel-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:16px;
+    gap:16px;
+    flex-wrap:wrap;
+  }
 
-    .barrier::before,
-    .barrier::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 4px;
-      height: 100%;
-      background: #d95f5f;
-    }
+  .hint{
+    font-size:0.85rem;
+    color:var(--text-dim);
+  }
 
-    .barrier::before { left: 20px; }
-    .barrier::after { right: 20px; }
+  .send-btn{
+    appearance:none;
+    border:none;
+    cursor:pointer;
+    font-family:"Space Grotesk", sans-serif;
+    font-weight:600;
+    font-size:0.98rem;
+    color:var(--void);
+    background:linear-gradient(120deg, var(--cyan), var(--violet));
+    padding:13px 30px;
+    clip-path:polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+    transition:transform 0.15s ease, filter 0.15s ease;
+    flex-shrink:0;
+  }
 
-    .back-btn {
-      display: inline-block;
-      padding: 12px 22px;
-      font-size: 1rem;
-      font-weight: bold;
-      color: white;
-      background: #2d6cdf;
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 6px 12px rgba(45, 108, 223, 0.25);
-      transition: background 0.2s ease;
-    }
+  .send-btn:hover{ filter:brightness(1.08); transform:translateY(-1px); }
+  .send-btn:active{ transform:translateY(0); }
+  .send-btn:disabled{ opacity:0.55; cursor:progress; filter:none; transform:none; }
+  .send-btn:focus-visible{ outline:2px solid var(--cyan); outline-offset:3px; }
 
-    .back-btn:hover {
-      background: #214fad;
-    }
-  </style>
+  /* ---------- Status ---------- */
+
+  .status{
+    margin-top:20px;
+    color:var(--text-dim);
+    font-size:0.95rem;
+    min-height:1.4em;
+  }
+
+  .status.error{ color:#ff8a8a; }
+
+  /* ---------- Results ---------- */
+
+  .results{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:18px;
+  }
+
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 22px 20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .card::after{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:2px;
+    background:linear-gradient(90deg, var(--cyan), var(--violet));
+    opacity:0.8;
+  }
+
+  .card .font-name{
+    font-size:1.7rem;
+    line-height:1.1;
+    color:var(--text);
+  }
+
+  .card .sample{
+    font-size:1.05rem;
+    color:var(--text-dim);
+    padding-top:2px;
+  }
+
+  .card .reasoning{
+    font-family:"Inter", sans-serif;
+    font-size:0.92rem;
+    color:var(--text-dim);
+    border-top:1px solid var(--line);
+    padding-top:10px;
+    margin-top:4px;
+  }
+
+  .card .meta{
+    font-size:0.78rem;
+    color:var(--cyan);
+  }
+
+  /* ---------- Transcript ---------- */
+
+  .transcript-section{
+    margin-top:64px;
+    border-top:1px solid var(--line);
+    padding-top:28px;
+  }
+
+  .transcript-section h2{
+    font-family:"Space Grotesk", sans-serif;
+    font-weight:600;
+    font-size:1.3rem;
+    margin:0 0 6px;
+  }
+
+  .transcript-section p.lead{
+    color:var(--text-dim);
+    font-size:0.92rem;
+    margin:0 0 14px;
+  }
+
+  #transcript{
+    width:100%;
+    min-height:220px;
+    resize:vertical;
+    background:rgba(5,6,11,0.6);
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--text-dim);
+    font-family:"Inter", sans-serif;
+    font-size:0.88rem;
+    line-height:1.6;
+    padding:16px;
+  }
+
+  /* ---------- Nav ---------- */
+
+  nav.site-nav{
+    margin-top:40px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  nav.site-nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-family:"Space Grotesk", sans-serif;
+    font-size:0.9rem;
+    padding:11px 22px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:var(--panel);
+    transition:border-color 0.15s ease, color 0.15s ease;
+  }
+
+  nav.site-nav a:hover{
+    border-color:var(--cyan);
+    color:var(--cyan);
+  }
+
+  @media (max-width:640px){
+    .hero{grid-template-columns:1fr; }
+    .orb{display:none;}
+    .wrap{padding:48px 18px 40px;}
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>Still Under Construction</h1>
 
-    <div class="scene" aria-label="construction worker illustration">
-      <div class="sun"></div>
-      <div class="barrier"></div>
+<div class="wrap">
 
-      <div class="construction">
-        <div class="hat"></div>
-        <div class="head"></div>
-        <div class="body"></div>
-        <div class="arm left"></div>
-        <div class="arm right"></div>
-        <div class="leg left"></div>
-        <div class="leg right"></div>
-        <div class="tool"></div>
-      </div>
-
-      <div class="ground"></div>
+  <header class="hero">
+    <div>
+      <h1>Describe the feeling.<br>Get the typeface.</h1>
+      <p>Skip the font-name guessing game. Tell it what the type should feel like — confident, handwritten, clinical, feral — and it'll surface faces that actually carry that tone, with the reasoning attached.</p>
     </div>
+    <div class="orb" aria-hidden="true"></div>
+  </header>
 
-    <a class="back-btn" href="index.html">Back</a>
-  </div>
+  <section class="search-panel">
+    <label for="prompt">What should this font feel like?</label>
+    <textarea id="prompt" placeholder="e.g. a font for a late-night jazz bar menu — warm, a little smoky, not trying too hard"></textarea>
+    <div class="panel-footer">
+      <span class="hint">Press the button, or hit ⌘/Ctrl + Enter</span>
+      <button class="send-btn" id="sendBtn" type="button">Find fonts</button>
+    </div>
+  </section>
+
+  <p class="status" id="status" role="status"></p>
+
+  <section class="results" id="results" aria-live="polite"></section>
+
+  <section class="transcript-section">
+    <h2>How this page got built</h2>
+    <p class="lead">The exchange that produced this tool, kept here as a record rather than tucked into a changelog.</p>
+    <textarea id="transcript" readonly>USER:
+I need you to create an HTML web page with CSS blocks and JavaScript if needed. The goal of this page is to create an AI powered font search engine, for users to enter literal descriptions, feelings, and tones they want the font to convey. There should be a text box where they can prompt, a send button, and then a results section that populates with several fonts, and a description of why they are a good fit. I would like the webpage to be AI themed with dark cool colors/gradients and futuristic button shapes. At the bottom of the page I need you to include an HTML text box to show the conversation we had to make this. Include navigation buttons at the bottom that link to the following HTML pages: index.html (Landing Page), portfolio.html (Portfolio), qualifications.html (Qualifications), activities.html (Activities).
+
+ASSISTANT:
+Built a single-file page called Font Oracle. Design direction: near-black void background with cyan-to-violet gradients, angled "cut-corner" clip-path buttons and panels instead of soft rounded cards, Space Grotesk for display type paired with Inter for body text. The prompt box sends the person's description to Claude, which returns a small set of real Google Fonts matched to the tone described, each rendered live in its own typeface with a short line of reasoning underneath. This transcript box and the four navigation pills you asked for sit at the bottom of the page.</textarea>
+  </section>
+
+  <nav class="site-nav" aria-label="Site">
+    <a href="index.html">Landing Page</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="qualifications.html">Qualifications</a>
+    <a href="activities.html">Activities</a>
+  </nav>
+
+</div>
+
+<script>
+(function(){
+  const promptEl = document.getElementById('prompt');
+  const sendBtn = document.getElementById('sendBtn');
+  const statusEl = document.getElementById('status');
+  const resultsEl = document.getElementById('results');
+
+  const loadedFonts = new Set();
+
+  function loadGoogleFont(family){
+    if(loadedFonts.has(family)) return;
+    loadedFonts.add(family);
+    const encoded = family.trim().replace(/\s+/g, '+');
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = `https://fonts.googleapis.com/css2?family=${encoded}:wght@400;600&display=swap`;
+    document.head.appendChild(link);
+  }
+
+  function setStatus(text, isError){
+    statusEl.textContent = text || '';
+    statusEl.classList.toggle('error', !!isError);
+  }
+
+  function renderResults(fonts){
+    resultsEl.innerHTML = '';
+    fonts.forEach(f => {
+      loadGoogleFont(f.googleFont);
+      const card = document.createElement('article');
+      card.className = 'card';
+
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.textContent = f.category || 'typeface';
+
+      const name = document.createElement('div');
+      name.className = 'font-name';
+      name.style.fontFamily = `"${f.googleFont}", sans-serif`;
+      name.textContent = f.name || f.googleFont;
+
+      const sample = document.createElement('div');
+      sample.className = 'sample';
+      sample.style.fontFamily = `"${f.googleFont}", sans-serif`;
+      sample.textContent = f.sample || 'The quick fox settles into an unfamiliar font.';
+
+      const reasoning = document.createElement('div');
+      reasoning.className = 'reasoning';
+      reasoning.textContent = f.reasoning || '';
+
+      card.append(meta, name, sample, reasoning);
+      resultsEl.appendChild(card);
+    });
+  }
+
+  async function findFonts(){
+    const description = promptEl.value.trim();
+    if(!description){
+      setStatus('Type a description first — a feeling, a mood, a use case.', true);
+      promptEl.focus();
+      return;
+    }
+
+    sendBtn.disabled = true;
+    setStatus('Reading the description and pulling matching typefaces…');
+    resultsEl.innerHTML = '';
+
+    const systemPrompt = `You are a typography expert. Given a description of a feeling, tone, or use case, respond with ONLY a raw JSON array (no markdown fences, no preamble, no commentary) of exactly 5 objects. Each object has these exact keys:
+- "name": the font's display name (string)
+- "googleFont": the exact Google Fonts family name for that font, spelled exactly as it appears on fonts.google.com (string)
+- "category": a short 1-3 word type classification, lowercase, e.g. "geometric sans" or "humanist serif" (string)
+- "sample": a short original sentence (under 12 words) that suits the requested tone, to be displayed set in that font (string)
+- "reasoning": 1-2 sentences explaining why this specific font matches the description (string)
+
+Only use real, well-known families that are actually available on Google Fonts, so they render correctly when loaded from fonts.googleapis.com. Vary the 5 choices — do not return five near-identical fonts. Return ONLY the JSON array.`;
+
+    try{
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-6",
+          max_tokens: 1000,
+          system: systemPrompt,
+          messages: [
+            { role: "user", content: `Description: ${description}` }
+          ]
+        })
+      });
+
+      if(!response.ok){
+        throw new Error(`Request failed (${response.status})`);
+      }
+
+      const data = await response.json();
+      const textBlock = (data.content || []).map(b => b.text || '').join('\n').trim();
+      const cleaned = textBlock.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
+
+      let fonts;
+      try{
+        fonts = JSON.parse(cleaned);
+      }catch(parseErr){
+        const match = cleaned.match(/\[[\s\S]*\]/);
+        if(match){
+          fonts = JSON.parse(match[0]);
+        }else{
+          throw parseErr;
+        }
+      }
+
+      if(!Array.isArray(fonts) || fonts.length === 0){
+        throw new Error('No fonts returned');
+      }
+
+      renderResults(fonts);
+      setStatus(`${fonts.length} fonts matched to "${description}"`);
+    }catch(err){
+      console.error(err);
+      setStatus('Something went wrong reaching the model. Try again in a moment.', true);
+    }finally{
+      sendBtn.disabled = false;
+    }
+  }
+
+  sendBtn.addEventListener('click', findFonts);
+  promptEl.addEventListener('keydown', (e) => {
+    if((e.metaKey || e.ctrlKey) && e.key === 'Enter'){
+      e.preventDefault();
+      findFonts();
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
